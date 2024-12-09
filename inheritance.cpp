@@ -14,19 +14,21 @@ using namespace std;
 // constructor call 1)parent class(base) ,then 2)child class(derived)
 //destructor call 1)child class(derived) , then 2)parent class(base)  , for deallocation the memory 
 
+
+// this is a single level inheritance
 class Person{
 public: 
    string name;
    int age;
 
-//    Person(string name,int age){
-//     this->name = name;
-//     this->age = age;
-//    }
-
-   Person(){
-    cout<<"parent constructor...\n";
+   Person(string name,int age){
+    this->name = name;
+    this->age = age;
    }
+
+  //  Person(){
+  //   cout<<"parent constructor...\n";
+  //  }
 };
 
 class Student : public Person{
@@ -34,8 +36,8 @@ class Student : public Person{
 public:
   int rollno;
 
-  Student(){
-    cout<<"child constructor...\n";
+  Student(string name,int age,int rollno) : Person(name,age){
+    this->rollno = rollno;
   }
 
   void getInfo(){
@@ -46,10 +48,11 @@ public:
 };
 
 int main(){
-    Student s1;
-    s1.name = "rahul kumar";
-    s1.age = 21;
-    s1.rollno = 1234;
+    Student s1("rahul kumar",21,1234);
+
+    // s1.name = "rahul kumar";
+    // s1.age = 21;
+    // s1.rollno = 1234;
     
     s1.getInfo();
     return 0;
