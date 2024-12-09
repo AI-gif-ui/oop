@@ -32,7 +32,7 @@ using namespace std;
 
 
 
-// class Teacher{
+// class Teacher{ s
 // private:
 //    double salary;
 // public:
